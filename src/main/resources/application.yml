@@ -1,0 +1,69 @@
+spring:
+  application:
+    name: spring_test
+
+  datasource:
+    driverClassName: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://localhost:3306/test_shop
+    username: ENC(vCTgTMZ9GSNFNWqbUxlcug==)
+    password: ENC(YswLiPD/yViKecLODDUdFg==)
+
+  jpa:
+    hibernate.ddl-auto: create
+    show-sql: true
+    properties.hibernate.format_sql: true
+
+  test:
+    loading:
+      message: "## local environment ##"
+
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: DEBUG
+
+      type:
+        descriptor:
+          sql:
+            BasicBinder: TRACE
+
+  # spring.data.redis.host=localhost
+  # spring.data.redis.port=6379
+
+jasypt:
+  encryptor:
+    bean: jasyptStringEncryptor
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: local
+
+  test:
+    loading:
+      message: "## local environment ##"
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: dev
+
+  test:
+    loading:
+      message: "## dev environment ##"
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: prod
+
+  test:
+    loading:
+      message: "## prod environment ##"
