@@ -1,16 +1,17 @@
 package com.example.spring_test.config;
 
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
 import org.jasypt.encryption.StringEncryptor;
 import org.jasypt.encryption.pbe.PooledPBEStringEncryptor;
 import org.jasypt.encryption.pbe.config.SimpleStringPBEConfig;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class JasyptConfig {
 
-  @Bean(name = "jasyptStringEncryptor")
-  public StringEncryptor stringEncryptor() {
+@Bean(name = "jasyptStringEncryptor")
+public StringEncryptor stringEncryptor() {
     String password = "spring_test";
     PooledPBEStringEncryptor encryptor = new PooledPBEStringEncryptor();
 
@@ -25,6 +26,5 @@ public class JasyptConfig {
 
     encryptor.setConfig(config);
     return encryptor;
-  }
-
+}
 }

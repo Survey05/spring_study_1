@@ -1,6 +1,7 @@
 plugins {
     `java-library`
     `maven-publish`
+    id("com.diffplug.spotless") version "6.25.0"
 }
 
 repositories {
@@ -8,6 +9,31 @@ repositories {
     mavenCentral()
     maven {
         url = uri("https://repo.maven.apache.org/maven2/")
+    }
+}
+
+spotless {
+    format("yaml") {
+        target("**/*.yml", "**/*.yml")
+        prettier().configFile(".prettierrc")
+    }
+    java{
+        removeUnusedImports()
+        googleJavaFormat()
+        importOrder(
+            "java",
+            "jakarta",
+            "lombok",
+            "org.springframework",
+            "",
+            "\\#",
+            "com.example",
+            "\\#com.example"
+        )
+        indentWithTabs()
+        indentWithSpaces()
+        trimTrailingWhitespace()
+        endWithNewline()
     }
 }
 

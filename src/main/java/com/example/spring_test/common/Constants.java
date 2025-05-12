@@ -2,19 +2,24 @@ package com.example.spring_test.common;
 
 public class Constants {
 
-    public enum ExceptionClass {
+public enum ExceptionClass {
+    PRODUCT("product"),
+    ORDER("Oreder"),
+    PROVIDER("Provider");
 
-        PRODUCT("product"), ORDER("Oreder"), PROVIDER("Provider");
+    private String exceptionClass;
 
-        private String exceptionClass;
-
-        ExceptionClass(String exceptionClass) { this.exceptionClass = exceptionClass; }
-
-        public String getExceptionClass() { return exceptionClass; }
-
-        @Override
-        public String toString() { return getExceptionClass() + " Exception. "; }
-
+    ExceptionClass(String exceptionClass) {
+    this.exceptionClass = exceptionClass;
     }
 
+    public String getExceptionClass() {
+    return exceptionClass;
+    }
+
+    @Override
+    public String toString() {
+    return getExceptionClass() + " Exception. ";
+    }
+}
 }

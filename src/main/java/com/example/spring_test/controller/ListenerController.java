@@ -1,7 +1,5 @@
 package com.example.spring_test.controller;
 
-import com.example.spring_test.data.entity.ListenerEntity;
-import com.example.spring_test.service.ListenerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,47 +8,48 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.spring_test.data.entity.ListenerEntity;
+import com.example.spring_test.service.ListenerService;
+
 @RestController
 @RequestMapping("/listener")
 public class ListenerController {
 
-  private ListenerService listenerService;
+private ListenerService listenerService;
 
-  @Autowired
-  public ListenerController(ListenerService listenerService) {
+@Autowired
+public ListenerController(ListenerService listenerService) {
     this.listenerService = listenerService;
-  }
+}
 
-  @GetMapping
-  public String getListener(Long id){
+@GetMapping
+public String getListener(Long id) {
     listenerService.getEntity(id);
 
     return "OK";
-  }
+}
 
-  @PostMapping
-  public void saveListener(String name){
+@PostMapping
+public void saveListener(String name) {
     ListenerEntity listenerEntity = new ListenerEntity();
     listenerEntity.setName(name);
 
     listenerService.saveEntity(listenerEntity);
-  }
+}
 
-  @PutMapping
-  public void updateListener(Long id, String name){
+@PutMapping
+public void updateListener(Long id, String name) {
     ListenerEntity listenerEntity = new ListenerEntity();
     listenerEntity.setId(id);
     listenerEntity.setName(name);
 
     listenerService.updateEntity(listenerEntity);
-  }
+}
 
-  @DeleteMapping
-  public void deleteListener(Long id){
+@DeleteMapping
+public void deleteListener(Long id) {
     ListenerEntity listenerEntity = listenerService.getEntity(id);
 
     listenerService.removeEntity(listenerEntity);
-  }
-
-
+}
 }

@@ -3,6 +3,7 @@ package com.example.spring_test.data.entity;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+
 import lombok.*;
 
 @Entity
@@ -13,16 +14,13 @@ import lombok.*;
 @Builder
 @ToString
 @Table(name = "product")
-public class Product extends BaseEntity{
+public class Product extends BaseEntity {
 
-  @Id
-  String id;
+@Id String id;
 
-  String name;
+String name;
 
-  Integer price;
+Integer price;
 
-  Integer stock;
-
-
+Integer stock;
 }

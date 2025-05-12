@@ -36,7 +36,6 @@ jasypt:
     bean: jasyptStringEncryptor
 
 ---
-
 spring:
   config:
     activate:
@@ -45,9 +44,7 @@ spring:
   test:
     loading:
       message: "## local environment ##"
-
 ---
-
 spring:
   config:
     activate:
@@ -56,9 +53,7 @@ spring:
   test:
     loading:
       message: "## dev environment ##"
-
 ---
-
 spring:
   config:
     activate:
