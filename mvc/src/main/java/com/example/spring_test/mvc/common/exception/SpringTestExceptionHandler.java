@@ -1,6 +1,5 @@
 package com.example.spring_test.mvc.common.exception;
 
-import com.example.spring_test.mvc.common.exception.SpringTestException;
 import java.util.HashMap;
 import java.util.Map;
 
