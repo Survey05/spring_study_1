@@ -101,3 +101,8 @@ java {
         languageVersion.set(JavaLanguageVersion.of(17))
     }
 }
+
+tasks.test {
+    useJUnitPlatform()
+    systemProperties["spring.profiles.active"] = "test"
+}

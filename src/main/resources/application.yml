@@ -40,25 +40,18 @@ spring:
   config:
     activate:
       on-profile: local
-
-  test:
-    loading:
-      message: "## local environment ##"
 ---
 spring:
   config:
     activate:
       on-profile: dev
-
-  test:
-    loading:
-      message: "## dev environment ##"
 ---
 spring:
   config:
     activate:
       on-profile: prod
-
-  test:
-    loading:
-      message: "## prod environment ##"
+---
+spring:
+  config:
+    activate:
+      on-profile: test
