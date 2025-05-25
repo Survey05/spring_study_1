@@ -1,0 +1,14 @@
+### /user-agent
+GET http://localhost:8080/argument/user-agent
+
+### /echo
+POST http://localhost:8080/argument/echo
+Content-Type: application/json
+
+{
+  "name": "spring",
+  "org": "test"
+}
+
+### /custom-response
+GET http://localhost:8080/argument/custom-response
